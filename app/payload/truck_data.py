@@ -2,14 +2,14 @@ from pydantic import BaseModel
 from datetime import datetime
 
 class TruckDataRequest(BaseModel):
-    device_id: str
+    truck_id: str
     timestamp: datetime
     location: str
     speed: float
 
 class TruckDataResponse(BaseModel):
     id: int
-    device_id: str
+    truck_id: str
     timestamp: datetime
     location: str
     speed: float
