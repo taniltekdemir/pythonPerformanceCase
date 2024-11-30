@@ -1,0 +1,7 @@
+CREATE TABLE truck_data (
+    id SERIAL PRIMARY KEY,
+    truck_id VARCHAR(50) NOT NULL,
+    location JSONB NOT NULL,
+    speed FLOAT NOT NULL,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

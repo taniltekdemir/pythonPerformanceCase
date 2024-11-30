@@ -1,19 +1,31 @@
-from fastapi import APIRouter, Depends, HTTPException
-from sqlalchemy.ext.asyncio import AsyncSession
-from app.api.services.truck_data_service import create_data
+from fastapi import APIRouter, HTTPException
 from app.payload.truck_data import TruckDataResponse, TruckDataRequest
-from app.core.database import get_db
+import pika
+from app.core.config import settings
+import json
+from datetime import datetime
 
 router = APIRouter()
-
-@router.post("/truckdata", response_model=TruckDataResponse)
-async def create_new_data(data: TruckDataRequest, db: AsyncSession = Depends(get_db)):
+@router.post("/truckdata", response_model=str)
+async def create_new_data(data: TruckDataRequest):
     try:
-        return await create_data(db, data)
-    except ValueError as e:
-        raise HTTPException(status_code=400, detail=f"Invalid data: {str(e)}")
+        data_dict = data.dict()
+        if "timestamp" in data_dict and isinstance(data_dict["timestamp"], datetime):
+            data_dict["timestamp"] = data_dict["timestamp"].isoformat()
+
+        connection = pika.BlockingConnection(pika.URLParameters(settings.RABBITMQ_URL))
+        channel = connection.channel()
+        channel.queue_declare(queue="truck_data_queue", durable=True)
+        channel.basic_publish(
+            exchange="",
+            routing_key="truck_data_queue",
+            body=json.dumps(data_dict),
+            properties=pika.BasicProperties(delivery_mode=2, content_type="application/json"),
+        )
+        connection.close()
+        return "Data was successfully posted"
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"An unexpected error occurred: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"An unexpected error occurred on queue: {str(e)}")
 
 
 @router.get("/")

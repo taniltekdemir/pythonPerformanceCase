@@ -12,6 +12,7 @@ TEST_DATA_TEMPLATE = {
 
 async def send_request(session, data):
     try:
+        # await asyncio.sleep(50)
         async with session.post(BASE_URL, json=data) as response:
             status = response.status
             response_data = await response.json()
