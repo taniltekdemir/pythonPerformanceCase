@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64e8de3f-ad2c-4966-8ff1-1dbbc7cc05b4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/tests/performance_test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/api/endpoints/truck_data_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/endpoints/truck_data_api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/payload/truck_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/payload/truck_data.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +106,7 @@
       <workItem from="1732967909807" duration="614000" />
       <workItem from="1732970845337" duration="9406000" />
       <workItem from="1732995308003" duration="871000" />
-      <workItem from="1732996469242" duration="1409000" />
+      <workItem from="1732996469242" duration="2622000" />
     </task>
     <servers />
   </component>
@@ -123,5 +123,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/python_case$python_case.coverage" NAME="python_case Coverage Results" MODIFIED="1732997912603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
