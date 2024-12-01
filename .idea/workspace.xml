@@ -5,22 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64e8de3f-ad2c-4966-8ff1-1dbbc7cc05b4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/consumer/worker.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sleep_for_docker.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/python_case.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/python_case.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/api/endpoints/truck_data_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/endpoints/truck_data_api.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/api/services/truck_data_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/services/truck_data_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/consumer/consumer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/core/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/core/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/init.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/performance_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/performance_test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +174,7 @@
       <workItem from="1733005186400" duration="5116000" />
       <workItem from="1733044262172" duration="12968000" />
       <workItem from="1733057533851" duration="3601000" />
-      <workItem from="1733067987330" duration="9231000" />
+      <workItem from="1733067987330" duration="11478000" />
     </task>
     <servers />
   </component>
@@ -206,6 +193,7 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/python_case$performance_test__1_.coverage" NAME="performance_test (1) Coverage Results" MODIFIED="1733077418923" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/python_case$performance_test.coverage" NAME="performance_test Coverage Results" MODIFIED="1732999797046" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/tests" />
     <SUITE FILE_PATH="coverage/python_case$python_case.coverage" NAME="python_case Coverage Results" MODIFIED="1732997912603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>

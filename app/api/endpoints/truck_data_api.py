@@ -1,9 +1,17 @@
 from fastapi import APIRouter, HTTPException
+from sqlalchemy import desc
+from sqlalchemy.exc import SQLAlchemyError
+from sqlalchemy.ext.asyncio import AsyncSession
+
+from app.api.services.truck_data_service import get_data_by_date_range, get_last_data_by_truckId
+from app.core.database import get_db
+from app.models.truck_data import TruckData
 from app.payload.truck_data import TruckDataResponse, TruckDataRequest
 import pika
 from app.core.config import settings
 import json
 from datetime import datetime
+from fastapi import APIRouter, Depends
 
 router = APIRouter()
 @router.post("/truckdata", response_model=str)
@@ -53,3 +61,11 @@ async def send_to_queue(queue_name: str, data: dict, rabbitmq_url: str):
 async def test():
     return {"message": "Welcome to the Truck Data API!"}
 
+@router.get("/trucks/")
+async def get_data(start_date: str, end_date: str, db: AsyncSession = Depends(get_db)):
+    return await get_data_by_date_range(db, start_date, end_date)
+
+
+@router.get("/trucks/{truck_id}")
+async def get_truck_data(truck_id: str, db: AsyncSession = Depends(get_db)):
+    return await get_last_data_by_truckId(db, truck_id)
