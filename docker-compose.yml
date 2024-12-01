@@ -2,24 +2,44 @@ version: "3.8"
 services:
   app:
     build: .
-    command: uvicorn app.main:app --host 0.0.0.0 --port 8000
+    command: [ "bash", "-c", "./sleep_for_docker.sh db 5432 && uvicorn app.main:app --host 0.0.0.0 --port 8000" ]
     depends_on:
       - db
       - rabbitmq
+      - worker
     environment:
       - RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672/
       - DATABASE_URL=postgresql+asyncpg://postgres:1234@db/python_case_db
     ports:
       - "8000:8000"
+    networks:
+      - my_network
+
+  worker:
+    build: .
+    command: ["python", "-u", "app/consumer/worker.py"]
+    depends_on:
+      - rabbitmq
+      - db
+    environment:
+      - RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672/
+      - DATABASE_URL=postgresql+asyncpg://postgres:1234@db/python_case_db
+      - PYTHONPATH=/app
+    networks:
+      - my_network
+
 
   rabbitmq:
     image: rabbitmq:3-management
+    container_name: rabbitmq
     ports:
       - "5672:5672"
       - "15672:15672"
     environment:
       RABBITMQ_DEFAULT_USER: guest
       RABBITMQ_DEFAULT_PASS: guest
+    networks:
+      - my_network
 
   db:
     image: postgres:15
@@ -32,8 +52,28 @@ services:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - "5432:5432"
+    networks:
+      - my_network
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    volumes:
+          - pgadmin_data:/var/lib/pgadmin
+    networks:
+      - my_network
+
 volumes:
   db_data:
+  pgadmin_data:
+
+networks:
+  my_network:
+    driver: bridge
 
 
 
