@@ -1,0 +1,132 @@
+{
+	"info": {
+		"_postman_id": "525bdd9c-196d-49ef-928e-15344fd52fac",
+		"name": "TruckData",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11840968"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8000/api/v1/truckdata/",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"device_id\": \"12345\",\r\n  \"timestamp\": \"2024-11-30T12:00:00\",\r\n  \"location\": \"40.7128,-74.0060\",\r\n  \"speed\": 55.5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/truckdata/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"truckdata",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/api/v1/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/api/v1/trucks/?start_date=2024-01-01&end_date=2024-01-31",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/trucks/?start_date=2024-01-01&end_date=2024-01-31",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"trucks",
+						""
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2024-01-01"
+						},
+						{
+							"key": "end_date",
+							"value": "2024-01-31"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/api/v1/trucks/123456",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/trucks/123456",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"trucks",
+						"123456"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
