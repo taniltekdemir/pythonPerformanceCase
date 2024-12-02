@@ -2,7 +2,6 @@ fastapi
 uvicorn[standard]
 sqlalchemy
 pika
-aiofiles
 asyncio
 aio-pika
 pydantic_settings

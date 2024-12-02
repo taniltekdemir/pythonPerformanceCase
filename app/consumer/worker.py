@@ -61,7 +61,6 @@ async def main():
 
 if __name__ == "__main__":
     try:
-        import aiofiles
         asyncio.run(main())
     except Exception as e:
         print(f"Worker script failed with error: {e}")
